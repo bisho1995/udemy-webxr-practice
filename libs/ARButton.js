@@ -131,7 +131,11 @@ class ARButton{
                 // ('local' is always available for immersive sessions and doesn't need to
                 // be requested separately.)
                 
-                navigator.xr.requestSession( 'immersive-ar', self.sessionInit ).then( onSessionStarted );
+                navigator.xr.requestSession('immersive-ar', self.sessionInit)
+                    .then(onSessionStarted).catch((err) => {
+                    console.error(err)
+                    alert("[ARButton.buttonOnClick] immersive-ar Failed")
+                })
 
             } else {
 
