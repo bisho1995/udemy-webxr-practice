@@ -145,6 +145,7 @@ class App {
         domOverlay: { root: document.body },
       },
     };
+    console.log(`[App.setupXR] starting ARButton creation`);
     const btn = new ARButton(this.renderer, config);
 
     const self = this;
