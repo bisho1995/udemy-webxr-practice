@@ -59,6 +59,9 @@ class ARButton {
     this.stylizeElement(button, true, 30, true);
 
     function onSessionStarted(session) {
+      console.log(
+        `[ARButton.onSessionStarted] onSessionStarted called session`
+      );
       currentSession = session;
 
       session.addEventListener("end", onSessionEnded);
@@ -74,6 +77,7 @@ class ARButton {
     }
 
     function onSessionEnded() {
+      console.log(`[ARButton.onSessionStarted] onSessionEnded called session`);
       currentSession.removeEventListener("end", onSessionEnded);
 
       self.stylizeElement(button, true, 12, true);
