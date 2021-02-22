@@ -174,18 +174,30 @@ class App {
     this.scene.add(this.controller);
   }
 
-  requestHitTestSource() {
+  async requestHitTestSource() {
     const self = this;
 
     const session = this.renderer.xr.getSession();
 
-    session.requestReferenceSpace("viewer").then(function (referenceSpace) {
+    try {
+      const space = await session.requestReferenceSpace("viewer");
       session
-        .requestHitTestSource({ space: referenceSpace })
-        .then(function (source) {
+        .requestHitTestSource({ space })
+        .then((source) => {
           self.hitTestSource = source;
+        })
+        .catch((err) => {
+          console.error(
+            `[App.requestHitTestSource()] Error with requestHitTestSource ${err}`
+          );
+          alert(`Failed to request HitTestSource`);
         });
-    });
+    } catch (err) {
+      console.error(
+        `[App.requestHitTestSource()] Error with requestReferenceSpace ${err}`
+      );
+      alert(`Failed to requestReferenceSpace`);
+    }
 
     session.addEventListener("end", function () {
       self.hitTestSourceRequested = false;
