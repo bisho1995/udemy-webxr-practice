@@ -60,7 +60,9 @@ class ARButton {
 
     function onSessionStarted(session) {
       console.log(
-        `[ARButton.onSessionStarted] onSessionStarted called session ${session}`
+        `[ARButton.onSessionStarted] onSessionStarted called session ${JSON.stringify(
+          session
+        )}`
       );
       currentSession = session;
 
