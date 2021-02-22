@@ -60,7 +60,7 @@ class ARButton {
 
     function onSessionStarted(session) {
       console.log(
-        `[ARButton.onSessionStarted] onSessionStarted called session`
+        `[ARButton.onSessionStarted] onSessionStarted called session ${session}`
       );
       currentSession = session;
 
@@ -69,6 +69,7 @@ class ARButton {
       self.renderer.xr.setReferenceSpaceType("local");
       self.renderer.xr.setSession(currentSession);
 
+      console.log(`[ARButton.onSessionStarted] setSession Done`);
       self.stylizeElement(button, false, 12, true);
 
       button.textContent = "STOP AR";
