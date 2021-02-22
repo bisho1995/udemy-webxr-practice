@@ -34,7 +34,11 @@ class App {
     light.position.set(0.2, 1, 1);
     this.scene.add(light);
 
-    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    this.renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+      xrCompatible: true,
+    });
     console.log(`[App.constructor] this.renderer ${this.renderer}`);
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
