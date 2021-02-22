@@ -35,6 +35,7 @@ class App {
     this.scene.add(light);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    console.log(`[App.constructor] this.renderer ${this.render}`);
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.outputEncoding = THREE.sRGBEncoding;
